@@ -1,0 +1,41 @@
+{
+	"name": "application_genre",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "basededados",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "applicationgenres.csv",
+				"container": "testingstuff"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "578080",
+				"type": "String"
+			},
+			{
+				"name": "Action",
+				"type": "String"
+			},
+			{
+				"name": "Adventure",
+				"type": "String"
+			},
+			{
+				"name": "Massively Multiplayer",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

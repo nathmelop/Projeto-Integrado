@@ -1,0 +1,9 @@
+{
+	"name": "grupo-03",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e0fe4891-a50a-41ba-ad3c-52824235b513",
+		"tenantId": "b4920c82-7581-491a-9dab-cd2ade2f3ebd"
+	}
+}

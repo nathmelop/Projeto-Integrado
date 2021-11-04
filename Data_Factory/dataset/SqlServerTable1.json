@@ -1,0 +1,94 @@
+{
+	"name": "SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServercerto_03",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "nome_da_origem",
+				"type": "varchar"
+			},
+			{
+				"name": "_key",
+				"type": "varchar"
+			},
+			{
+				"name": "appid",
+				"type": "varchar"
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "developer",
+				"type": "varchar"
+			},
+			{
+				"name": "publisher",
+				"type": "varchar"
+			},
+			{
+				"name": "score_rank",
+				"type": "varchar"
+			},
+			{
+				"name": "positive",
+				"type": "varchar"
+			},
+			{
+				"name": "negative",
+				"type": "varchar"
+			},
+			{
+				"name": "userscore",
+				"type": "varchar"
+			},
+			{
+				"name": "owners",
+				"type": "varchar"
+			},
+			{
+				"name": "average_forever",
+				"type": "varchar"
+			},
+			{
+				"name": "average_2weeks",
+				"type": "varchar"
+			},
+			{
+				"name": "median_forever",
+				"type": "varchar"
+			},
+			{
+				"name": "median_2weeks",
+				"type": "varchar"
+			},
+			{
+				"name": "price",
+				"type": "varchar"
+			},
+			{
+				"name": "initialprice",
+				"type": "varchar"
+			},
+			{
+				"name": "discount",
+				"type": "varchar"
+			},
+			{
+				"name": "ccu",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tabelasteamblob4"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

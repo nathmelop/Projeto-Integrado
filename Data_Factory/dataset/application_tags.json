@@ -1,0 +1,109 @@
+{
+	"name": "application_tags",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "basededados",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "applicationtags.csv",
+				"container": "testingstuff"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "578080",
+				"type": "String"
+			},
+			{
+				"name": "Survival",
+				"type": "String"
+			},
+			{
+				"name": "Shooter",
+				"type": "String"
+			},
+			{
+				"name": "Multiplayer",
+				"type": "String"
+			},
+			{
+				"name": "PvP",
+				"type": "String"
+			},
+			{
+				"name": "FPS",
+				"type": "String"
+			},
+			{
+				"name": "Third-Person Shooter",
+				"type": "String"
+			},
+			{
+				"name": "Action",
+				"type": "String"
+			},
+			{
+				"name": "Online Co-Op",
+				"type": "String"
+			},
+			{
+				"name": "Tactical",
+				"type": "String"
+			},
+			{
+				"name": "Battle Royale",
+				"type": "String"
+			},
+			{
+				"name": "Co-op",
+				"type": "String"
+			},
+			{
+				"name": "Early Access",
+				"type": "String"
+			},
+			{
+				"name": "First-Person",
+				"type": "String"
+			},
+			{
+				"name": "Violent",
+				"type": "String"
+			},
+			{
+				"name": "Strategy",
+				"type": "String"
+			},
+			{
+				"name": "Third Person",
+				"type": "String"
+			},
+			{
+				"name": "Competitive",
+				"type": "String"
+			},
+			{
+				"name": "Team-Based",
+				"type": "String"
+			},
+			{
+				"name": "Difficult",
+				"type": "String"
+			},
+			{
+				"name": "Simulation",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

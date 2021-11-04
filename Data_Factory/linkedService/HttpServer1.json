@@ -1,0 +1,13 @@
+{
+	"name": "HttpServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://blueshiftcombr.sharepoint.com/:u:/s/ProjetoIntegrado3/ERz-F4R0RCpOm4k68KxDZ-sBU3zr23ILH17dgRhBeONvKQ?e=bKj0la",
+			"enableServerCertificateValidation": false,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

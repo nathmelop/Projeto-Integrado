@@ -1,0 +1,102 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "appid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "nameapp",
+				"type": "varchar"
+			},
+			{
+				"name": "developer",
+				"type": "varchar"
+			},
+			{
+				"name": "publisher",
+				"type": "varchar"
+			},
+			{
+				"name": "score_rank",
+				"type": "varchar"
+			},
+			{
+				"name": "positive",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "negative",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "userscore",
+				"type": "varchar"
+			},
+			{
+				"name": "owners",
+				"type": "varchar"
+			},
+			{
+				"name": "average_forever",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "average_2weeks",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "median_forever",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "median_2weeks",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "price",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "initial_price",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "discount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ccu",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "testetabela2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

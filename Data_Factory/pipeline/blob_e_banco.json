@@ -1,0 +1,1463 @@
+{
+	"name": "blob_e_banco",
+	"properties": {
+		"activities": [
+			{
+				"name": "steam_baseapi",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "appid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "appid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "developer",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "developer",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "publisher",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "publisher",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "positive",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "positive",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "negative",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "negative",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "owners",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "owners",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "average_forever",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "average_forever",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "average_2weeks",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "average_2weeks",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "median_forever",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "median_forever",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "median_2weeks",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "median_2weeks",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "price",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "initialprice",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "initialprice",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ccu",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ccu",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "basededados",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "application_information",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "procedure_genre",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "appid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "appid",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "releasedate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "releasedate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "freetoplay",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "freetoplay",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "application_information",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "application_information_stage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "application_supported_languages",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "procedure_information",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "0",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "appid",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language1",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language2",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language3",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "4",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language4",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language5",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "6",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language6",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "7",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language7",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "8",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language8",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "9",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language9",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language10",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "11",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language11",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "12",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language12",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "13",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language13",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "14",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language14",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "15",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language15",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "16",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language16",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "17",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language17",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "18",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language18",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "19",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language19",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "20",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language20",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "21",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language21",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "22",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language22",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "23",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language23",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "24",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language24",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "25",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language25",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "26",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language26",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "27",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language27",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "28",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "language28",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "application_supported_languages",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "application_supported_languages_stage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "application_tags",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "procedure_languages",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "0",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "appid",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag1",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag2",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag3",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "4",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag4",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag5",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "6",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag6",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "7",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag7",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "8",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag8",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "9",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag9",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag10",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "11",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag11",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "12",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag12",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "13",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag13",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "14",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag14",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "15",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag15",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "16",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag16",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "17",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag17",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "18",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag18",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "19",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag19",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "20",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tag20",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "application_tags",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "application_tags_stage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "application_genre",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "procedure_charts",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "0",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "appid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre1",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre2",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre3",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "4",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre4",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "5",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre5",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "6",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre6",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "7",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre7",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "8",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genre8",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "application_genre",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "application_genre_stage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "steam_charts",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "steam_baseapi",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Month",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Month",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Avg. Players",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Avg. Players",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Gain",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Gain",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "% Gain",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "% Gain",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Peak Players",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Peak Players",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "App ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "App ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Game",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Game",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "steam_charts",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "steam_charts_stage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "procedure_charts",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "steam_charts",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[proc_STEAM_CHARTS_FINAL]"
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServercerto_03",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "procedure_genre",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "application_genre",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[proc_APPLICATION_GENRE_FINAL]"
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServercerto_03",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "procedure_information",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "application_information",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[proc_APPLICATION_INFORMATION_FINAL]"
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServercerto_03",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "procedure_languages",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "application_supported_languages",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[proc_APPLICATION_SUPPORTED_LANGUAGES_FINAL]"
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServercerto_03",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "procedure_tags",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "application_tags",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[proc_APPLICATION_TAGS_FINAL]"
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServercerto_03",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-10-26T19:58:48Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

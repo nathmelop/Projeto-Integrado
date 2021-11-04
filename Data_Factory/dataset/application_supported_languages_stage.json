@@ -1,0 +1,17 @@
+{
+	"name": "application_supported_languages_stage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServercerto_03",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "application_supported_languages_stage"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

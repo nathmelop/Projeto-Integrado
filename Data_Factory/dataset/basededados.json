@@ -1,0 +1,81 @@
+{
+	"name": "basededados",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "basededados",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "filesteambasecerta.csv",
+				"container": "testingstuff"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "appid",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "developer",
+				"type": "String"
+			},
+			{
+				"name": "publisher",
+				"type": "String"
+			},
+			{
+				"name": "positive",
+				"type": "String"
+			},
+			{
+				"name": "negative",
+				"type": "String"
+			},
+			{
+				"name": "owners",
+				"type": "String"
+			},
+			{
+				"name": "average_forever",
+				"type": "String"
+			},
+			{
+				"name": "average_2weeks",
+				"type": "String"
+			},
+			{
+				"name": "median_forever",
+				"type": "String"
+			},
+			{
+				"name": "median_2weeks",
+				"type": "String"
+			},
+			{
+				"name": "price",
+				"type": "String"
+			},
+			{
+				"name": "initialprice",
+				"type": "String"
+			},
+			{
+				"name": "ccu",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

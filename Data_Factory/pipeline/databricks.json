@@ -1,0 +1,57 @@
+{
+	"name": "databricks",
+	"properties": {
+		"activities": [
+			{
+				"name": "API",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/lucas.teixeira@blueshift.com.br/NotebookGrupo03BaseImportSteamBACKUPFINAL"
+				},
+				"linkedServiceName": {
+					"referenceName": "databricks_grupo03",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "WebScrapping",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "API",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/lucas.teixeira@blueshift.com.br/WebScrapingDimSteam_grp3"
+				},
+				"linkedServiceName": {
+					"referenceName": "databricks_grupo03",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-10-25T13:41:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

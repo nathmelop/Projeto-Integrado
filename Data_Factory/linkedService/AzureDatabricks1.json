@@ -1,0 +1,14 @@
+{
+	"name": "AzureDatabricks1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-172892871508660.0.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/e9f266b7-47a3-4c25-a8b7-522266df7180/resourceGroups/blueshift-academy/providers/Microsoft.Databricks/workspaces/blueacademy",
+			"existingClusterId": "0929-225754-few530"
+		}
+	}
+}

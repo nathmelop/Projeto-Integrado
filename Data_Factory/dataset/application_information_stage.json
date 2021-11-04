@@ -1,0 +1,17 @@
+{
+	"name": "application_information_stage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServercerto_03",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "application_information_stage"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

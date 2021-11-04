@@ -1,0 +1,53 @@
+{
+	"name": "steam_charts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "basededados",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "steam_charts.csv",
+				"container": "testingstuff"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "Avg. Players",
+				"type": "String"
+			},
+			{
+				"name": "Gain",
+				"type": "String"
+			},
+			{
+				"name": "% Gain",
+				"type": "String"
+			},
+			{
+				"name": "Peak Players",
+				"type": "String"
+			},
+			{
+				"name": "App ID",
+				"type": "String"
+			},
+			{
+				"name": "Game",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

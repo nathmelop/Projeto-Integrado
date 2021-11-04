@@ -1,0 +1,97 @@
+{
+	"name": "application_supported_languages",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "basededados",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "applicationsupportedlanguages.csv",
+				"container": "testingstuff"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "578080",
+				"type": "String"
+			},
+			{
+				"name": "English",
+				"type": "String"
+			},
+			{
+				"name": " Korean",
+				"type": "String"
+			},
+			{
+				"name": " Simplified Chinese",
+				"type": "String"
+			},
+			{
+				"name": " French",
+				"type": "String"
+			},
+			{
+				"name": " German",
+				"type": "String"
+			},
+			{
+				"name": " Spanish - Spain",
+				"type": "String"
+			},
+			{
+				"name": " Arabic",
+				"type": "String"
+			},
+			{
+				"name": " Japanese",
+				"type": "String"
+			},
+			{
+				"name": " Polish",
+				"type": "String"
+			},
+			{
+				"name": " Portuguese",
+				"type": "String"
+			},
+			{
+				"name": " Russian",
+				"type": "String"
+			},
+			{
+				"name": " Turkish",
+				"type": "String"
+			},
+			{
+				"name": " Thai",
+				"type": "String"
+			},
+			{
+				"name": " Italian",
+				"type": "String"
+			},
+			{
+				"name": " Portuguese - Brazil",
+				"type": "String"
+			},
+			{
+				"name": " Traditional Chinese",
+				"type": "String"
+			},
+			{
+				"name": " Ukrainian",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
