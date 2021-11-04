@@ -1,0 +1,202 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "grupo-03"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage1_lnkd_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1_lnkd'"
+		},
+		"AzureDatabricks2_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks2'"
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksDeltaLake1'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"SqlServercerto_03_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServercerto_03'"
+		},
+		"basededados_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'basededados'"
+		},
+		"databricks_grupo03_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'databricks_grupo03'"
+		},
+		"json_01_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'json_01'"
+		},
+		"ls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls'"
+		},
+		"ls_database_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_database'"
+		},
+		"ls_destino_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_destino'"
+		},
+		"ls_origem_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_origem'"
+		},
+		"sqlserver_03_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sqlserver_03'"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://blueshiftcombr.sharepoint.com/:u:/s/ProjetoIntegrado3/ERz-F4R0RCpOm4k68KxDZ-sBU3zr23ILH17dgRhBeONvKQ?e=bKj0la"
+		},
+		"apisteamspy_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "http://steamspy.com/api.php?request=all&page=1 - return apps 1,000-1,999 of all apps."
+		},
+		"json_01_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "https://blueshiftcombr.sharepoint.com/sites/ProjetoIntegrado3/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FProjetoIntegrado3%2FShared%20Documents%2FDados%20Steam&viewid=1b0f9f12%2D3515%2D41c1%2D979d%2Da27f0d2a7230&OR=Teams%2DHL&CT=1634132136538"
+		},
+		"json_01_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"ls_destino_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccountgrupo03.dfs.core.windows.net"
+		},
+		"ls_origem_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccountgrupo03.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "grupo-03_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage1_lnkd_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_lnkd_connectionString')]"
+					},
+					"AzureDatabricks2_accessToken": {
+						"value": "[parameters('AzureDatabricks2_accessToken')]"
+					},
+					"AzureDatabricksDeltaLake1_accessToken": {
+						"value": "[parameters('AzureDatabricksDeltaLake1_accessToken')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"SqlServercerto_03_connectionString": {
+						"value": "[parameters('SqlServercerto_03_connectionString')]"
+					},
+					"basededados_connectionString": {
+						"value": "[parameters('basededados_connectionString')]"
+					},
+					"databricks_grupo03_accessToken": {
+						"value": "[parameters('databricks_grupo03_accessToken')]"
+					},
+					"json_01_password": {
+						"value": "[parameters('json_01_password')]"
+					},
+					"ls_connectionString": {
+						"value": "[parameters('ls_connectionString')]"
+					},
+					"ls_database_connectionString": {
+						"value": "[parameters('ls_database_connectionString')]"
+					},
+					"ls_destino_accountKey": {
+						"value": "[parameters('ls_destino_accountKey')]"
+					},
+					"sqlserver_03_connectionString": {
+						"value": "[parameters('sqlserver_03_connectionString')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"apisteamspy_properties_typeProperties_url": {
+						"value": "[parameters('apisteamspy_properties_typeProperties_url')]"
+					},
+					"json_01_properties_typeProperties_host": {
+						"value": "[parameters('json_01_properties_typeProperties_host')]"
+					},
+					"json_01_properties_typeProperties_userId": {
+						"value": "[parameters('json_01_properties_typeProperties_userId')]"
+					},
+					"ls_destino_properties_typeProperties_url": {
+						"value": "[parameters('ls_destino_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "grupo-03_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_origem_accountKey": {
+						"value": "[parameters('ls_origem_accountKey')]"
+					},
+					"ls_origem_properties_typeProperties_url": {
+						"value": "[parameters('ls_origem_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'grupo-03_ArmTemplate_0')]"
+			]
+		}
+	]
+}

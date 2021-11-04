@@ -1,0 +1,75 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "grupo-03"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1_lnkd_connectionString": {
+			"value": ""
+		},
+		"AzureDatabricks2_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"SqlServercerto_03_connectionString": {
+			"value": ""
+		},
+		"basededados_connectionString": {
+			"value": ""
+		},
+		"databricks_grupo03_accessToken": {
+			"value": ""
+		},
+		"json_01_password": {
+			"value": ""
+		},
+		"ls_connectionString": {
+			"value": ""
+		},
+		"ls_database_connectionString": {
+			"value": ""
+		},
+		"ls_destino_accountKey": {
+			"value": ""
+		},
+		"ls_origem_accountKey": {
+			"value": ""
+		},
+		"sqlserver_03_connectionString": {
+			"value": ""
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://blueshiftcombr.sharepoint.com/:u:/s/ProjetoIntegrado3/ERz-F4R0RCpOm4k68KxDZ-sBU3zr23ILH17dgRhBeONvKQ?e=bKj0la"
+		},
+		"apisteamspy_properties_typeProperties_url": {
+			"value": "http://steamspy.com/api.php?request=all&page=1 - return apps 1,000-1,999 of all apps."
+		},
+		"json_01_properties_typeProperties_host": {
+			"value": "https://blueshiftcombr.sharepoint.com/sites/ProjetoIntegrado3/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FProjetoIntegrado3%2FShared%20Documents%2FDados%20Steam&viewid=1b0f9f12%2D3515%2D41c1%2D979d%2Da27f0d2a7230&OR=Teams%2DHL&CT=1634132136538"
+		},
+		"json_01_properties_typeProperties_userId": {
+			"value": "admin"
+		},
+		"ls_destino_properties_typeProperties_url": {
+			"value": "https://storageaccountgrupo03.dfs.core.windows.net"
+		},
+		"ls_origem_properties_typeProperties_url": {
+			"value": "https://storageaccountgrupo03.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
